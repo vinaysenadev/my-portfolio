@@ -2,14 +2,24 @@ import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import { navIcons, navLinks } from "#constants";
 import useWindowStore from "#store/window";
+import { Fullscreen, Minimize } from "lucide-react";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const { openWindow } = useWindowStore();
-
+  const [isFullScreen, setIsFullScreen] = useState(false);
   const [currentTime, setCurrentTime] = useState(
     dayjs().format("ddd MM D h:mm A")
   );
-
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+      setIsFullScreen(true);
+    } else {
+      document.exitFullscreen();
+      setIsFullScreen(false);
+    }
+  };
   useEffect(() => {
     const ticker = setInterval(() => {
       setCurrentTime(dayjs().format("ddd MMM D h:mm A"));
@@ -37,6 +47,29 @@ const Navbar = () => {
       </div>
       <div>
         <ul>
+          <button onClick={toggleFullscreen}>
+            {!isFullScreen ? (
+              <Fullscreen
+                data-tooltip-id="app-full-screen"
+                data-tooltip-content={"Go full screen"}
+                data-tooltip-delay-show={150}
+                className="icon cursor-pointer"
+              />
+            ) : (
+              <Minimize
+                className="icon cursor-pointer"
+                data-tooltip-id="app-exit-full-screen"
+                data-tooltip-content={"Exit full screen"}
+                data-tooltip-delay-show={150}
+              />
+            )}
+          </button>
+          <Tooltip id="app-full-screen" place="bottom" className="tooltip" />
+          <Tooltip
+            id="app-exit-full-screen"
+            place="bottom"
+            className="tooltip"
+          />
           {navIcons.map(({ id, img }) => (
             <li key={id}>
               <img
