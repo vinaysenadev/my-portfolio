@@ -1,5 +1,9 @@
 import Terminal from "#windows/Terminal";
 import Browser from "#windows/Browser";
 import Resume from "#windows/Resume";
+import Finder from "#windows/Finder";
+import Text from "#windows/Text";
+import Image from "#windows/Image";
+import Contact from "#windows/Contact";
 
-export { Terminal, Browser, Resume };
+export { Terminal, Browser, Resume, Finder, Text, Image, Contact };

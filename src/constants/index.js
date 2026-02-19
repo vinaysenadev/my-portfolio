@@ -228,7 +228,7 @@ const WORK_LOCATION = {
       name: "Nike Ecommerce Website Application",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-10 left-5", // icon position inside Finder
+      position: "top-5 left-1", // icon position inside Finder
       windowPosition: "top-[5vh] left-5", // optional: Finder window position
       children: [
         {
@@ -281,7 +281,7 @@ const WORK_LOCATION = {
       name: "AI Resume Analyzer",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-52 right-80",
+      position: "top-5 left-42",
       windowPosition: "top-[20vh] left-7",
       children: [
         {
@@ -334,7 +334,7 @@ const WORK_LOCATION = {
       name: "Food Delivery App",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-10 left-80",
+      position: "top-5 left-80",
       windowPosition: "top-[33vh] left-7",
       children: [
         {
@@ -396,7 +396,7 @@ const ABOUT_LOCATION = {
       icon: "/images/image.png",
       kind: "file",
       fileType: "img",
-      position: "top-10 left-5",
+      position: "top-5 left-0",
       imageUrl: "/images/adrian.jpg",
     },
     {
@@ -405,7 +405,7 @@ const ABOUT_LOCATION = {
       icon: "/images/image.png",
       kind: "file",
       fileType: "img",
-      position: "top-28 right-72",
+      position: "top-5 right-72",
       imageUrl: "/images/adrian-2.jpg",
     },
     {
@@ -414,7 +414,7 @@ const ABOUT_LOCATION = {
       icon: "/images/image.png",
       kind: "file",
       fileType: "img",
-      position: "top-52 left-80",
+      position: "top-5 left-70",
       imageUrl: "/images/adrian-3.jpeg",
     },
     {
@@ -423,7 +423,7 @@ const ABOUT_LOCATION = {
       icon: "/images/txt.png",
       kind: "file",
       fileType: "txt",
-      position: "top-60 left-5",
+      position: "top-35 left-0",
       subtitle: "Meet the Developer Behind the Code",
       image: "/images/adrian.jpg",
       description: [

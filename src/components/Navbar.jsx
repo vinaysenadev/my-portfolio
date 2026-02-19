@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import { navIcons, navLinks } from "#constants";
 import useWindowStore from "#store/window";
-import { Fullscreen, Minimize } from "lucide-react";
+import { Fullscreen, Minimize, MoveRight } from "lucide-react";
 import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
@@ -45,7 +45,12 @@ const Navbar = () => {
           ))}
         </ul>
       </div>
+
       <div>
+        <div className="italic text-sm justify-end flex">
+          Enable Full Screen Mode for the Best macOS Experience{" "}
+          <MoveRight className="" />
+        </div>
         <ul>
           <button onClick={toggleFullscreen}>
             {!isFullScreen ? (
