@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import { navIcons, navLinks } from "#constants";
+import useWindowStore from "#store/window";
 
 const Navbar = () => {
+  const { openWindow } = useWindowStore();
+
   const [currentTime, setCurrentTime] = useState(
-    dayjs().format("ddd MM D h:mm A"),
+    dayjs().format("ddd MM D h:mm A")
   );
+
   useEffect(() => {
     const ticker = setInterval(() => {
       setCurrentTime(dayjs().format("ddd MMM D h:mm A"));
@@ -20,8 +24,14 @@ const Navbar = () => {
         <img src="/images/logo.svg" alt="app logo" />
         <p className="font-bold">Vinaysena's Portfolio</p>
         <ul>
-          {navLinks.map(({ id, name }) => (
-            <li key={id}>{name}</li>
+          {navLinks.map(({ id, name, type }) => (
+            <li
+              className="cursor-pointer"
+              key={id}
+              onClick={() => openWindow(type)}
+            >
+              {name}
+            </li>
           ))}
         </ul>
       </div>

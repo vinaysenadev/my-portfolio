@@ -115,11 +115,11 @@ body {
   }
 
   #window-header {
-    @apply flex items-center justify-between px-4 py-3 rounded-t-lg bg-gray-50 border-b border-gray-200 select-none text-sm text-gray-400;
+    @apply flex items-center justify-between px-4 py-2 rounded-t-lg bg-gray-200 border-b border-gray-300 select-none text-sm text-gray-500;
   }
 
-  #safari {
-    @apply w-4xl absolute top-40 left-2/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+  #browser {
+    @apply w-4xl absolute top-20 left-2/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
     .search {
       @apply flex items-center gap-3 w-2/3 bg-white border border-gray-300 rounded-lg px-3 py-2;
@@ -297,7 +297,7 @@ body {
   }
 
   #resume {
-    @apply w-fit h-fit absolute top-16 left-7/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+    @apply w-fit  absolute top-10 left-7/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden h-[90vh];
 
     #window-header {
       h2 {
