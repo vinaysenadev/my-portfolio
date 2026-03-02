@@ -73,8 +73,18 @@ const windowWrapper = (Component, windowKey) => {
       //   el.style.display = isOpen ? "block" : "none";
     }, [isOpen]);
 
+    const handleFocus = () => {
+      focusWindow(windowKey);
+    };
+
     return (
-      <section id={windowKey} ref={ref} style={{ zIndex }} className="absolute">
+      <section
+        id={windowKey}
+        ref={ref}
+        style={{ zIndex }}
+        className="absolute"
+        onMouseDown={handleFocus}
+      >
         <Component {...props} />
       </section>
     );
