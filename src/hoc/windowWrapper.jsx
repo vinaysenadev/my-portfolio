@@ -73,7 +73,8 @@ const windowWrapper = (Component, windowKey) => {
       //   el.style.display = isOpen ? "block" : "none";
     }, [isOpen]);
 
-    const handleFocus = () => {
+    const handleFocus = (e) => {
+      if (e) e.stopPropagation();
       focusWindow(windowKey);
     };
 

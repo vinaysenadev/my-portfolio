@@ -55,7 +55,11 @@ const Finder = () => {
             <li
               key={item.id}
               className={item.position}
-              onClick={() => openItem(item)}
+              onMouseDown={(e) => e.stopPropagation()}
+              onClick={(e) => {
+                e.stopPropagation();
+                openItem(item);
+              }}
             >
               <img src={item.icon} alt={item.name} />
               <p>{item.name}</p>
