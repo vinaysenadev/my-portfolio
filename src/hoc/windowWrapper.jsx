@@ -48,7 +48,7 @@ const windowWrapper = (Component, windowKey) => {
           filter: "blur(0px)",
           duration: 0.5,
           ease: "power4.out",
-        }
+        },
       ).to(el, {
         scale: 1,
         y: 0,
@@ -59,13 +59,17 @@ const windowWrapper = (Component, windowKey) => {
 
     useGSAP(() => {
       const el = ref.current;
-      if (!el) return;
+      if (!el || !isOpen) return;
+
+      const trigger = el.querySelector(".window-header");
+      if (!trigger) return;
 
       const [instance] = Draggable.create(el, {
+        trigger,
         onPress: () => focusWindow(windowKey),
       });
       return () => instance.kill();
-    }, []);
+    }, [isOpen, windows[windowKey].data]);
 
     useLayoutEffect(() => {
       const el = ref.current;

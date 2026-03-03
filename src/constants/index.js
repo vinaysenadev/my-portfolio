@@ -70,7 +70,7 @@ const dockApps = [
     id: "trash",
     name: "Archive", // was "Trash"
     icon: "trash.png",
-    canOpen: false,
+    canOpen: true,
   },
 ];
 
@@ -133,7 +133,7 @@ const socials = [
     icon: "/icons/github.svg",
     bg: "#f4656b",
     link: "https://github.com/vinaysenadev",
-    label:"vinaysenadev"
+    label: "vinaysenadev",
   },
   {
     id: 2,
@@ -141,7 +141,7 @@ const socials = [
     icon: "/icons/gmail.png",
     bg: "#4bcb63",
     link: "mailto:vinaysena.dev@gmail.com",
-    label:"vinaysena.dev@gmail.com"
+    label: "vinaysena.dev@gmail.com",
   },
   {
     id: 4,
@@ -149,15 +149,15 @@ const socials = [
     icon: "/icons/linkedin.svg",
     bg: "#05b6f6",
     link: "https://www.linkedin.com/in/vinay-sena-29339b205/",
-    label:"vinay-sena"
+    label: "vinay-sena",
   },
   {
     id: 3,
     text: "Phone",
     icon: "/icons/phone.png",
     bg: "#ff866b",
-   link: "tel:+91 7981 20 5050",
-   label:"+91 7981 20 5050"
+    link: "tel:+91 7981 20 5050",
+    label: "+91 7981 20 5050",
   },
 ];
 
@@ -167,45 +167,25 @@ const photosLinks = [
     icon: "/icons/gicon1.svg",
     title: "Library",
   },
-  {
-    id: 2,
-    icon: "/icons/gicon2.svg",
-    title: "Memories",
-  },
-  {
-    id: 3,
-    icon: "/icons/file.svg",
-    title: "Places",
-  },
-  {
-    id: 4,
-    icon: "/icons/gicon4.svg",
-    title: "People",
-  },
-  {
-    id: 5,
-    icon: "/icons/gicon5.svg",
-    title: "Favorites",
-  },
 ];
 
 const gallery = [
   {
     id: 1,
-    img: "/images/gal1.png",
+    img: "/images/photos/photo-1.jpeg",
   },
   {
     id: 2,
-    img: "/images/gal2.png",
+    img: "/images/photos/photo-2.jpeg",
   },
-  {
-    id: 3,
-    img: "/images/gal3.png",
-  },
-  {
-    id: 4,
-    img: "/images/gal4.png",
-  },
+  // {
+  //   id: 3,
+  //   img: "/images/gal3.png",
+  // },
+  // {
+  //   id: 4,
+  //   img: "/images/gal4.png",
+  // },
 ];
 
 export {
@@ -326,7 +306,6 @@ const WORK_LOCATION = {
             "State Management: Zustand for reactive analysis state",
             "Data Engine: PageSpeed Insights API",
             "Visuals: Recharts for performance trends & Lucide React for iconography",
-           
           ],
         },
         {
@@ -496,20 +475,56 @@ const TRASH_LOCATION = {
     {
       id: 1,
       name: "trash1.png",
-      icon: "/images/image.png",
+      icon: "/trash/trash-1.png",
       kind: "file",
       fileType: "img",
       position: "top-10 left-10",
-      imageUrl: "/images/trash-1.png",
+      imageUrl: "/trash/trash-1.png",
     },
     {
       id: 2,
       name: "trash2.png",
-      icon: "/images/image.png",
+      icon: "/trash/trash-2.png",
       kind: "file",
       fileType: "img",
       position: "top-40 left-80",
-      imageUrl: "/images/trash-2.png",
+      imageUrl: "/trash/trash-2.png",
+    },
+    {
+      id: 3,
+      name: "trash2.png",
+      icon: "/trash/trash-3.png",
+      kind: "file",
+      fileType: "img",
+      position: "top-40 left-80",
+      imageUrl: "/trash/trash-3.png",
+    },
+    {
+      id: 4,
+      name: "trash2.png",
+      icon: "/trash/trash-4.png",
+      kind: "file",
+      fileType: "img",
+      position: "top-40 left-80",
+      imageUrl: "/trash/trash-4.png",
+    },
+    {
+      id: 5,
+      name: "trash5.png",
+      icon: "/trash/trash-5.png",
+      kind: "file",
+      fileType: "img",
+      position: "top-40 left-80",
+      imageUrl: "/trash/trash-5.png",
+    },
+    {
+      id: 6,
+      name: "trash6.png",
+      icon: "/trash/trash-6.png",
+      kind: "file",
+      fileType: "img",
+      position: "top-40 left-80",
+      imageUrl: "/trash/trash-6.png",
     },
   ],
 };
@@ -530,6 +545,7 @@ const WINDOW_CONFIG = {
   browser: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   photos: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+  trash: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 };

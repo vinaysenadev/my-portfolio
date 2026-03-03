@@ -27,7 +27,7 @@ const Finder = () => {
           <li
             key={item.id}
             className={clsx(
-              item.id === activeLocation.id ? "active" : "not-active"
+              item.id === activeLocation.id ? "active" : "not-active",
             )}
             onClick={() => setActiveLocation(item)}
           >
@@ -41,7 +41,7 @@ const Finder = () => {
 
   return (
     <>
-      <div id="window-header">
+      <div id="window-header" className="window-header">
         <WindowControls target="finder" />
       </div>
 

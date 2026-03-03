@@ -7,7 +7,7 @@ import React from "react";
 const Terminal = () => {
   return (
     <>
-      <div className="" id="window-header">
+      <div id="window-header" className="window-header">
         <WindowControls target="terminal" />
         <h2>@vinaysena-portfolio-tech stack $</h2>
       </div>

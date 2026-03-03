@@ -7,9 +7,11 @@ import {
   Contact,
   Finder,
   Image,
+  Photos,
   Resume,
   Terminal,
   Text,
+  Trash,
 } from "#windows";
 
 gsap.registerPlugin(Draggable);
@@ -29,8 +31,10 @@ const App = () => {
 
       <Terminal />
       <Browser />
+      <Photos />
       <Resume />
       <Finder />
+      <Trash />
       <Text />
       <Image />
 

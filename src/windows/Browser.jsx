@@ -17,7 +17,7 @@ import React from "react";
 const Browser = () => {
   return (
     <>
-      <div id="window-header">
+      <div id="window-header" className="window-header">
         <WindowControls target="browser" />
         <PanelLeft className="ml-10 icon" />
 
