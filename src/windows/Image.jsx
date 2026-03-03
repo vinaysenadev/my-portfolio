@@ -1,6 +1,7 @@
 import { WindowControls } from "#components";
 import windowWrapper from "#hoc/windowWrapper";
 import useWindowStore from "#store/window";
+import clsx from "clsx";
 import React from "react";
 
 const Image = ({ isMobile }) => {

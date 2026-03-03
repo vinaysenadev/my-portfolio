@@ -41,7 +41,7 @@ const Navbar = () => {
 
   if (isMobile) {
     return (
-      <nav className="flex justify-between items-center px-6 py-2 bg-transparent backdrop-blur-none border-none pointer-events-none select-none">
+      <nav className="flex justify-between items-center px-6 py-2 bg-transparent backdrop-blur-none border-none  select-none">
         <div className="flex justify-start w-full">
           <time className="text-white font-semibold text-sm">
             {currentTime}
@@ -57,7 +57,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav>
+    <nav className="relative z-50">
       <div>
         <img src="/images/logo.svg" alt="app logo" />
         <p className="font-bold">Vinaysena's Portfolio</p>
