@@ -4,13 +4,15 @@ import windowWrapper from "#hoc/windowWrapper";
 import { Check, CheckCheck, Flag } from "lucide-react";
 import React from "react";
 
-const Terminal = () => {
+const Terminal = ({ isMobile }) => {
   return (
     <>
-      <div id="window-header" className="window-header">
-        <WindowControls target="terminal" />
-        <h2>@vinaysena-portfolio-tech stack $</h2>
-      </div>
+      {!isMobile && (
+        <div id="window-header" className="window-header">
+          <WindowControls target="terminal" />
+          <h2>@vinaysena-portfolio-tech stack $</h2>
+        </div>
+      )}
       <div className="techstack">
         <p>
           <span className="font-bold">@vinaysena % </span>

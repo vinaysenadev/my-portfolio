@@ -1,9 +1,10 @@
 import { WindowControls } from "#components";
 import windowWrapper from "#hoc/windowWrapper";
 import useWindowStore from "#store/window";
+import clsx from "clsx";
 import React from "react";
 
-const Text = () => {
+const Text = ({ isMobile }) => {
   const { windows } = useWindowStore();
   const data = windows.txtfile?.data;
   console.log({ data });
@@ -13,11 +14,18 @@ const Text = () => {
 
   return (
     <>
-      <div id="window-header" className="window-header">
-        <WindowControls target="txtfile" />
-        <h2>{name}</h2>
-      </div>
-      <div className="p-5 space-y-6 bg-white min-h-[50vh] max-h-[70vh] overflow-x-auto">
+      {!isMobile && (
+        <div id="window-header" className="window-header">
+          <WindowControls target="txtfile" />
+          <h2>{name}</h2>
+        </div>
+      )}
+      <div
+        className={clsx(
+          "p-5 space-y-6 bg-white overflow-x-auto",
+          isMobile ? "flex-1 pt-10" : "min-h-[50vh] max-h-[70vh]",
+        )}
+      >
         {image ? (
           <div className="w-full">
             <img src={image} alt={name} className="w-full h-auto rounded" />

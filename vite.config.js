@@ -16,6 +16,7 @@ export default defineConfig({
       "#store": resolve(__dirname, "src/store"),
       "#hoc": resolve(__dirname, "src/hoc"),
       "#windows": resolve(__dirname, "src/windows"),
+      "#hooks": resolve(__dirname, "src/hooks"),
     },
   },
 });

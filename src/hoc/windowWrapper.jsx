@@ -1,3 +1,4 @@
+import useMobile from "#hooks/useMobile";
 import useWindowStore from "#store/window";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -6,7 +7,8 @@ import React, { useLayoutEffect, useRef } from "react";
 
 const windowWrapper = (Component, windowKey) => {
   const Wrapped = (props) => {
-    const { focusWindow, windows } = useWindowStore();
+    const isMobile = useMobile();
+    const { focusWindow, windows, closeWindow } = useWindowStore();
     const { isOpen, zIndex } = windows[windowKey];
     const ref = useRef(null);
 
@@ -15,10 +17,10 @@ const windowWrapper = (Component, windowKey) => {
       const viewportHeight = window.innerHeight;
       if (!isOpen && el) {
         gsap.to(el, {
-          scale: 0.3,
+          scale: isMobile ? 1 : 0.3,
           opacity: 0,
-          y: viewportHeight * 0.3,
-          filter: "blur(6px)",
+          y: isMobile ? viewportHeight : viewportHeight * 0.3,
+          filter: isMobile ? "none" : "blur(6px)",
           duration: 0.35,
           ease: "power2.in",
           onComplete: () => {
@@ -32,34 +34,51 @@ const windowWrapper = (Component, windowKey) => {
 
       const tl = gsap.timeline();
 
-      tl.fromTo(
-        el,
-        {
-          scale: 0.05,
-          opacity: 0,
-          y: viewportHeight * 0.4, // start lower on screen
-          transformOrigin: "50% 100%",
-          filter: "blur(5px)",
-        },
-        {
-          scale: 1.08,
-          opacity: 1,
-          y: -10,
-          filter: "blur(0px)",
+      if (isMobile) {
+        tl.fromTo(
+          el,
+          {
+            y: viewportHeight,
+            opacity: 1,
+            filter: "none",
+            scale: 1,
+          },
+          {
+            y: 0,
+            duration: 0.4,
+            ease: "power2.out",
+          },
+        );
+      } else {
+        tl.fromTo(
+          el,
+          {
+            scale: 0.05,
+            opacity: 0,
+            y: viewportHeight * 0.4,
+            transformOrigin: "50% 100%",
+            filter: "blur(5px)",
+          },
+          {
+            scale: 1.08,
+            opacity: 1,
+            y: -10,
+            filter: "blur(0px)",
+            duration: 0.5,
+            ease: "power4.out",
+          },
+        ).to(el, {
+          scale: 1,
+          y: 0,
           duration: 0.5,
-          ease: "power4.out",
-        },
-      ).to(el, {
-        scale: 1,
-        y: 0,
-        duration: 0.5,
-        ease: "power2.out",
-      });
-    }, [isOpen]);
+          ease: "power2.out",
+        });
+      }
+    }, [isOpen, isMobile]);
 
     useGSAP(() => {
       const el = ref.current;
-      if (!el || !isOpen) return;
+      if (!el || !isOpen || isMobile) return;
 
       const trigger = el.querySelector(".window-header");
       if (!trigger) return;
@@ -69,13 +88,7 @@ const windowWrapper = (Component, windowKey) => {
         onPress: () => focusWindow(windowKey),
       });
       return () => instance.kill();
-    }, [isOpen, windows[windowKey].data]);
-
-    useLayoutEffect(() => {
-      const el = ref.current;
-      if (!el) return;
-      //   el.style.display = isOpen ? "block" : "none";
-    }, [isOpen]);
+    }, [isOpen, isMobile, windows[windowKey].data]);
 
     const handleFocus = (e) => {
       if (e) e.stopPropagation();
@@ -87,10 +100,28 @@ const windowWrapper = (Component, windowKey) => {
         id={windowKey}
         ref={ref}
         style={{ zIndex }}
-        className="absolute"
+        className={`absolute ${
+          isMobile ? "inset-0 w-full h-full rounded-none bg-white z-[100]" : ""
+        }`}
         onMouseDown={handleFocus}
       >
-        <Component {...props} />
+        {isMobile && (
+          <div className="ios-status-bar h-12 bg-white flex items-center justify-between px-6 pt-2 sticky top-0 z-[101] border-b border-gray-100">
+            <button
+              onClick={() => closeWindow(windowKey)}
+              className="text-blue-500 font-medium text-lg"
+            >
+              Done
+            </button>
+            <h1 className="font-semibold text-gray-900 absolute left-1/2 -translate-x-1/2">
+              {windowKey.charAt(0).toUpperCase() + windowKey.slice(1)}
+            </h1>
+            <div className="w-10" /> {/* Spacer */}
+          </div>
+        )}
+        <div className={isMobile ? "h-[calc(100%-48px)] overflow-y-auto" : ""}>
+          <Component {...props} isMobile={isMobile} />
+        </div>
       </section>
     );
   };

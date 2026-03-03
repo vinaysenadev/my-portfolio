@@ -2,15 +2,25 @@ import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import { navIcons, navLinks } from "#constants";
 import useWindowStore from "#store/window";
-import { Fullscreen, Minimize, MoveRight } from "lucide-react";
+import {
+  Fullscreen,
+  Minimize,
+  MoveRight,
+  Battery,
+  Wifi,
+  Signal,
+} from "lucide-react";
 import { Tooltip } from "react-tooltip";
+import useMobile from "#hooks/useMobile";
 
 const Navbar = () => {
+  const isMobile = useMobile();
   const { openWindow } = useWindowStore();
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [currentTime, setCurrentTime] = useState(
-    dayjs().format("ddd MM D h:mm A")
+    dayjs().format(isMobile ? "h:mm" : "ddd MM D h:mm A"),
   );
+
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
       document.documentElement.requestFullscreen();
@@ -20,13 +30,31 @@ const Navbar = () => {
       setIsFullScreen(false);
     }
   };
+
   useEffect(() => {
     const ticker = setInterval(() => {
-      setCurrentTime(dayjs().format("ddd MMM D h:mm A"));
+      setCurrentTime(dayjs().format(isMobile ? "h:mm" : "ddd MMM D h:mm A"));
     }, 1000);
 
     return () => clearInterval(ticker);
-  }, []);
+  }, [isMobile]);
+
+  if (isMobile) {
+    return (
+      <nav className="flex justify-between items-center px-6 py-2 bg-transparent backdrop-blur-none border-none pointer-events-none select-none">
+        <div className="flex justify-start w-full">
+          <time className="text-white font-semibold text-sm">
+            {currentTime}
+          </time>
+        </div>
+        <div className="flex justify-end items-center gap-1.5 text-white">
+          <Signal size={16} strokeWidth={2.5} />
+          <Wifi size={16} strokeWidth={2.5} />
+          <Battery size={20} strokeWidth={2} className="rotate-0" />
+        </div>
+      </nav>
+    );
+  }
 
   return (
     <nav>

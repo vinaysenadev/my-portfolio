@@ -7,13 +7,14 @@ import windowWrapper from "#hoc/windowWrapper";
 
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
+import clsx from "clsx";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.mjs",
   import.meta.url,
 ).toString();
 
-const Resume = () => {
+const Resume = ({ isMobile }) => {
   const [numPages, setNumPages] = useState();
   const [pageNumber, setPageNumber] = useState(1);
 
@@ -23,20 +24,22 @@ const Resume = () => {
 
   return (
     <>
-      <div id="window-header" className="window-header">
-        <WindowControls target="resume" />
-        <h2>My Resume</h2>
+      {!isMobile && (
+        <div id="window-header" className="window-header">
+          <WindowControls target="resume" />
+          <h2>My Resume</h2>
 
-        <a
-          href="files/Vinayasenareddykatta.pdf"
-          download
-          className="cursor-pointer"
-          title="Download resume"
-        >
-          <Download className="icon" />
-        </a>
-      </div>
-      <div className="overflow-auto h-[85vh]">
+          <a
+            href="files/Vinayasenareddykatta.pdf"
+            download
+            className="cursor-pointer"
+            title="Download resume"
+          >
+            <Download className="icon" />
+          </a>
+        </div>
+      )}
+      <div className={clsx("overflow-auto", isMobile ? "h-full" : "h-[85vh]")}>
         <Document
           file="files/Vinayasenareddykatta.pdf"
           onLoadSuccess={onDocumentLoadSuccess}

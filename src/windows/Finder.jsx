@@ -6,7 +6,7 @@ import useWindowStore from "#store/window";
 import clsx from "clsx";
 import React from "react";
 
-const Finder = () => {
+const Finder = ({ isMobile }) => {
   const { openWindow } = useWindowStore();
   const { activeLocation, setActiveLocation } = useLocationStore();
 
@@ -41,11 +41,13 @@ const Finder = () => {
 
   return (
     <>
-      <div id="window-header" className="window-header">
-        <WindowControls target="finder" />
-      </div>
+      {!isMobile && (
+        <div id="window-header" className="window-header">
+          <WindowControls target="finder" />
+        </div>
+      )}
 
-      <div className="bg-white flex f-ull ">
+      <div className="bg-white flex w-full flex-1 min-h-0">
         <div className="sidebar">
           {renderList(Object.values(locations), "Favorites")}
           {renderList(locations.work.children, "Work")}
