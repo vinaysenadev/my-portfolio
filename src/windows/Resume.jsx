@@ -4,15 +4,14 @@ import { ChevronLeftCircle, ChevronRightCircle, Download } from "lucide-react";
 
 import { WindowControls } from "#components";
 import windowWrapper from "#hoc/windowWrapper";
+import pdfWorker from "pdfjs-dist/build/pdf.worker.min?url";
 
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
+
 import clsx from "clsx";
 
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "pdfjs-dist/build/pdf.worker.min.mjs",
-  import.meta.url,
-).toString();
+pdfjs.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 const Resume = ({ isMobile }) => {
   const [numPages, setNumPages] = useState();
@@ -28,24 +27,29 @@ const Resume = ({ isMobile }) => {
         <div id="window-header" className="window-header">
           <WindowControls target="resume" />
           <h2>My Resume</h2>
-
-          <a
-            href="files/kattavinayasenareddy.pdf"
-            download
-            className="cursor-pointer"
-            title="Download resume"
-          >
-            <Download className="icon" />
-          </a>
         </div>
       )}
-      <div className={clsx("overflow-auto", isMobile ? "h-full" : "h-[85vh]")}>
+
+      <div
+        className={clsx(
+          "overflow-auto w-full",
+          isMobile ? "h-full" : "h-[85vh]",
+        )}
+      >
         <Document
-          file="files/kattavinaysenareddy.pdf"
+          file="/files/kattavinaysenareddy.pdf"
           onLoadSuccess={onDocumentLoadSuccess}
+          onLoadError={(error) => alert("PDF Error:", error)}
+          renderMode="svg"
+          scale={isMobile ? 2 : 1}
         >
-          <Page pageNumber={pageNumber} />
+          <Page
+            pageNumber={pageNumber}
+            width={isMobile ? 350 : 700}
+            renderTextLayer={false}
+          />
         </Document>
+
         <div className="flex gap-5 justify-between p-2">
           <p className="text-sm text-gray-500">
             Page {pageNumber} of {numPages}

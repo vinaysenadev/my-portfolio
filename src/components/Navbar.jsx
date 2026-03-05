@@ -57,11 +57,11 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="relative z-50">
-      <div>
+    <nav className="flex items-center justify-between relative z-50 gap-3">
+      <div className="flex items-center gap-3 ">
         <img src="/images/logo.svg" alt="app logo" />
         <p className="font-bold">Vinaysena's Portfolio</p>
-        <ul>
+        <ul className="flex items-center gap-3">
           {navLinks.map(({ id, name, type }) => (
             <li
               className="cursor-pointer"
@@ -74,12 +74,8 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div>
-        <div className="italic text-sm justify-end flex">
-          Enable Full Screen Mode for the Best macOS Experience{" "}
-          <MoveRight className="" />
-        </div>
-        <ul>
+      <div className="flex">
+        <ul className="flex items-center gap-2">
           <button onClick={toggleFullscreen}>
             {!isFullScreen ? (
               <Fullscreen
@@ -97,12 +93,6 @@ const Navbar = () => {
               />
             )}
           </button>
-          <Tooltip id="app-full-screen" place="bottom" className="tooltip" />
-          <Tooltip
-            id="app-exit-full-screen"
-            place="bottom"
-            className="tooltip"
-          />
           {navIcons.map(({ id, img }) => (
             <li key={id}>
               <img
@@ -112,8 +102,10 @@ const Navbar = () => {
               />
             </li>
           ))}
+          <time>{currentTime}</time>
         </ul>
-        <time>{currentTime}</time>
+        <Tooltip id="app-full-screen" place="bottom" className="tooltip" />
+        <Tooltip id="app-exit-full-screen" place="bottom" className="tooltip" />
       </div>
     </nav>
   );

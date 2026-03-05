@@ -77,7 +77,7 @@ const Dock = () => {
     <section id="dock" className={isMobile ? "!block !bottom-6" : ""}>
       <div
         ref={dockRef}
-        className={`dock-container ${isMobile ? "!rounded-[2rem] px-4 py-2" : ""}`}
+        className={`dock-container flex ${isMobile ? "rounded-4xl px-4 py-2" : "rounded-2xl p-2"}`}
       >
         {dockApps.map(({ id, name, icon, canOpen }) => {
           return (

@@ -3,6 +3,7 @@ import useWindowStore from "#store/window";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Draggable } from "gsap/Draggable";
+import { ArrowBigLeft, ArrowLeft, Download } from "lucide-react";
 import React, { useLayoutEffect, useRef } from "react";
 
 const windowWrapper = (Component, windowKey) => {
@@ -101,7 +102,7 @@ const windowWrapper = (Component, windowKey) => {
         ref={ref}
         style={{ zIndex }}
         className={`absolute ${
-          isMobile ? "inset-0 w-full h-full rounded-none bg-white z-[100]" : ""
+          isMobile ? "inset-0 w-full h-full rounded-none bg-white z-100" : ""
         }`}
         onMouseDown={handleFocus}
       >
@@ -109,14 +110,25 @@ const windowWrapper = (Component, windowKey) => {
           <div className="ios-status-bar h-12 bg-white flex items-center justify-between px-6 pt-2 sticky top-0 z-[101] border-b border-gray-100">
             <button
               onClick={() => closeWindow(windowKey)}
-              className="text-blue-500 font-medium text-lg"
+              className="text-blue-500 font-medium text-sm flex items-center gap-2"
             >
-              Done
+              <ArrowLeft size={20} /> <span className="">Go Back</span>
             </button>
             <h1 className="font-semibold text-gray-900 absolute left-1/2 -translate-x-1/2">
               {windowKey.charAt(0).toUpperCase() + windowKey.slice(1)}
             </h1>
-            <div className="w-10" /> {/* Spacer */}
+            <div className="w-10">
+              {windowKey === "resume" && (
+                <a
+                  href="files/kattavinayasenareddy.pdf"
+                  download
+                  className="cursor-pointer"
+                  title="Download resume"
+                >
+                  <Download className="icon" />
+                </a>
+              )}
+            </div>
           </div>
         )}
         <div className={isMobile ? "h-[calc(100%-48px)] overflow-y-auto" : ""}>
