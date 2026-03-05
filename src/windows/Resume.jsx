@@ -30,7 +30,7 @@ const Resume = ({ isMobile }) => {
           <h2>My Resume</h2>
 
           <a
-            href="files/Vinayasenareddykatta.pdf"
+            href="files/kattavinayasenareddy.pdf"
             download
             className="cursor-pointer"
             title="Download resume"
@@ -41,7 +41,7 @@ const Resume = ({ isMobile }) => {
       )}
       <div className={clsx("overflow-auto", isMobile ? "h-full" : "h-[85vh]")}>
         <Document
-          file="files/Vinayasenareddykatta.pdf"
+          file="files/kattavinaysenareddy.pdf"
           onLoadSuccess={onDocumentLoadSuccess}
         >
           <Page pageNumber={pageNumber} />

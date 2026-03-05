@@ -40,7 +40,7 @@ const Photos = ({ isMobile }) => {
             className={clsx(
               isMobile
                 ? "flex flex-col gap-4"
-                : "grid grid-cols-5 grid-rows-5 gap-2.5",
+                : "flex items-start gap-4 flex-wrap h-[400px] w-[550px]",
             )}
           >
             {gallery.map(({ id, img }) => {
@@ -56,14 +56,14 @@ const Photos = ({ isMobile }) => {
                       imageUrl: img,
                     })
                   }
-                  className={clsx(!isMobile && "w-[250px]")}
+                  className={clsx(!isMobile && "w-[150px] h-[150px]")}
                 >
                   <img
                     src={img}
                     alt={`Gallery image ${id}`}
                     className={clsx(
                       "object-cover rounded-lg",
-                      isMobile ? "w-full h-auto" : "border-[1.5px] w-[300px]",
+                      isMobile ? "w-full h-auto" : "",
                     )}
                   />
                 </li>

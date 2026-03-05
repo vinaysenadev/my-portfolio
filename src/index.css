@@ -236,7 +236,7 @@ body {
     }
   }
 
-  #photos  {
+  #photos {
     @apply md:max-w-3xl md:absolute md:top-96 md:left-1/2 md:-translate-y-1/2 bg-white md:shadow-2xl md:drop-shadow-2xl md:rounded-xl overflow-hidden;
 
     .sidebar {

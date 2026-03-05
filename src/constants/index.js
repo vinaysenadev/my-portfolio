@@ -102,27 +102,31 @@ const blogPosts = [
 const techStack = [
   {
     category: "Frontend",
-    items: ["React.js", "Next.js", "TypeScript"],
+    items: ["avaScript (ES6+)", "TypeScript", "React.js", "Next.js"],
   },
   {
-    category: "Mobile",
-    items: ["React Native", "Expo"],
+    category: "Styling & UI:",
+    items: ["HTML5", "CSS3", "Tailwind", "CSS", "Sass"],
   },
   {
-    category: "Styling",
-    items: ["Tailwind CSS", "Sass", "CSS"],
+    category: "State Management",
+    items: ["Redux", "Redux Toolkit", "Zustand", "React Context API"],
   },
   {
-    category: "Backend",
-    items: ["Node.js", "Express", "NestJS", "Hono"],
+    category: "Data Fetching",
+    items: ["REST API's", "Tanstack Query", "FetchAPI"],
   },
   {
-    category: "Database",
-    items: ["MongoDB", "PostgreSQL"],
+    category: "UI Libraries",
+    items: ["ShadCN UI", "Material UI"],
   },
   {
     category: "Dev Tools",
-    items: ["Git", "GitHub", "Docker"],
+    items: ["Git", "GitHub", "Vite"],
+  },
+  {
+    category: "Others",
+    items: ["Nodejs", "postgres", "Prisma", "Convex", "Sanity", "Inngest"],
   },
 ];
 
@@ -178,10 +182,10 @@ const gallery = [
     id: 2,
     img: "/images/photos/photo-2.jpeg",
   },
-  // {
-  //   id: 3,
-  //   img: "/images/gal3.png",
-  // },
+  {
+    id: 3,
+    img: "/images/photos/myrrh.jpeg",
+  },
   // {
   //   id: 4,
   //   img: "/images/gal4.png",
