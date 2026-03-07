@@ -44,7 +44,7 @@ const dockApps = [
   },
   {
     id: "browser",
-    name: "Articles", // was "Safari"
+    name: "Projects", // was "Safari"
     icon: "safari.png",
     canOpen: true,
   },
@@ -81,28 +81,28 @@ const blogPosts = [
     title:
       "TypeScript Explained: What It Is, Why It Matters, and How to Master It",
     image: "/images/blog1.png",
-    link: "https://jsmastery.com/blog/typescript-explained-what-it-is-why-it-matters-and-how-to-master-it",
+    link: "#",
   },
   {
     id: 2,
     date: "Aug 28, 2025",
     title: "The Ultimate Guide to Mastering Three.js for 3D Development",
     image: "/images/blog2.png",
-    link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-three-js-for-3d-development",
+    link: "#",
   },
   {
     id: 3,
     date: "Aug 15, 2025",
     title: "The Ultimate Guide to Mastering GSAP Animations",
     image: "/images/blog3.png",
-    link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-gsap-animations",
+    link: "#",
   },
 ];
 
 const techStack = [
   {
     category: "Frontend",
-    items: ["avaScript (ES6+)", "TypeScript", "React.js", "Next.js"],
+    items: ["JavaScript (ES6+)", "TypeScript", "React.js", "Next.js"],
   },
   {
     category: "Styling & UI:",
@@ -210,13 +210,101 @@ const WORK_LOCATION = {
   icon: "/icons/work.svg",
   kind: "folder",
   children: [
+    // Akira
     {
-      id: 5,
+      id: 1,
+      name: "Akira AI IDE",
+      icon: "/images/folder.png",
+      kind: "folder",
+      position: "top-[3vh] left-100",
+      windowPosition: "top-[22vh] left-50",
+      images: ["/images/akira-landing.png", "/images/akira-editor.png"],
+      href: "https://akira-ide.vercel.app/",
+      description: [
+        "Akira is an AI-powered cloud IDE built to transform the “prompt-to-app” development experience. It enables developers to generate, edit, and run full-stack applications entirely within the browser without any local setup. By leveraging advanced language models, Akira can convert high-level project descriptions into fully structured codebases within seconds, significantly accelerating the development process. With an in-browser Node.js runtime powered by WebContainers, developers can run npm commands, manage dependencies, and host development servers directly in the browser, making the platform accessible from any device with a modern web browser.",
+        "The platform combines a powerful development environment with real-time collaboration and intelligent automation. It features a full-fledged code editor built on CodeMirror, an interactive terminal using XTerm.js, and a live preview system with Hot Module Replacement for instant application feedback. Real-time data persistence is handled by Convex, ensuring project files and states remain synchronized across sessions, while background workflows and AI tasks are managed through Inngest. Built with a modern stack including Next.js, Tailwind CSS, Zustand, and the Vercel AI SDK, and secured with Clerk authentication, Akira delivers a seamless, scalable, and highly interactive cloud-based development environment for modern AI-assisted software creation.",
+      ],
+      children: [
+        {
+          id: 1,
+          name: "Akira AI Powered IDE.txt",
+          icon: "/images/txt.png",
+          kind: "file",
+          fileType: "txt",
+          position: "top-5 left-5",
+          description: [
+            'Akira is an AI-powered cloud IDE designed to revolutionize the "prompt-to-app" experience. It allows developers to scaffold, edit, and run full-stack applications entirely within the browser.',
+            "🚀 Core Purpose",
+            "Accelerated Development: Transform high-level project descriptions into working codebases in seconds.",
+            "Zero Configuration: Provide a complete development environment (runtime, terminal, editor) without local installation.",
+            "Universal Accessibility: Enable full-stack development from any device with a modern web browser.",
+            "",
+            "✨ Key Features",
+            "AI-Driven Project Scaffolding: Leverages advanced LLMs (Anthropic, OpenAI, Google) to generate project structures, files, and boilerplate code from natural language prompts.",
+            "In-Browser Node.js Runtime: Utilizes WebContainers to run Node.js, execute npm commands, and host development servers directly in the browser.",
+            "Real-Time Data Persistence: Powered by Convex, ensuring all files, states, and project data are synchronized in real-time across sessions.",
+            "Full-Featured Code Editor: A robust editing experience built on CodeMirror, featuring syntax highlighting, auto-completion, and intelligent AI-assisted coding.",
+            "Integrated Interactive Terminal: Employs XTerm.js to provide a fully functional CLI for managing dependencies and running scripts.",
+            "Background Workflow Automation: Uses Inngest for managing complex, long-running AI tasks and background processes reliably.",
+            "Integrated App Preview: Instantly view live application changes in a side-by-side preview window with Hot Module Replacement (HMR).",
+            "Secure User Authentication: Comprehensive user management and social login (Google, GitHub) via Clerk.",
+            "",
+            "🛠️ Technical Stack",
+            "Frontend Framework: Next.js 15+ (App Router, React 19)",
+            "Database & Backend-as-a-Service: Convex",
+            "Authentication: Clerk",
+            "AI Orchestration: Vercel AI SDK",
+            "Runtime Virtualization: WebContainers",
+            "Background Jobs: Inngest",
+            "Styling & UI Components: Tailwind CSS 4 & Shadcn UI",
+            "State Management: Zustand",
+            "Editor & Terminal: CodeMirror 6 & XTerm.js",
+            "",
+          ],
+        },
+        {
+          id: 2,
+          name: "akira-ide.vercel",
+          icon: "/images/safari.png",
+          kind: "file",
+          fileType: "url",
+          href: "https://akira-ide.vercel.app/",
+          position: "top-5 left-40",
+        },
+        {
+          id: 4,
+          name: "akira-landing",
+          icon: "/images/akira-landing.png",
+          kind: "file",
+          fileType: "img",
+          position: "top-5 left-75",
+          imageUrl: "/images/akira-landing.png",
+        },
+        {
+          id: 5,
+          name: "akira-editor.png",
+          icon: "/images/akira-editor.png",
+          kind: "file",
+          fileType: "img",
+          position: "top-40 left-5",
+          imageUrl: "/images/akira-editor.png",
+        },
+      ],
+    },
+    // web performance analyzer
+    {
+      id: 2,
       name: "Quantum School management dashboard",
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-5 left-1", // icon position inside Finder
       windowPosition: "top-[3vh] left-5", // optional: Finder window position
+      images: ["/images/Quantum-1.png", "/images/Quantum-teacher.png"],
+      href: "https://quantum-sms.vercel.app/",
+      description: [
+        "Quantum Academy is a modern, full-stack School Management System designed to streamline academic administration, teaching workflows, and communication between administrators, teachers, students, and parents. The platform offers intelligent role-based dashboards that provide personalized access to relevant information, along with real-time performance analytics to track academic progress, attendance, and institutional insights. It also features an integrated academic scheduling system with an interactive calendar to manage lessons, exams, and assignments, ensuring smooth coordination across the school ecosystem.",
+        "The system further enhances engagement through comprehensive digital profiles for students and teachers, along with a real-time communication hub that delivers announcements, updates, and notifications instantly. Built using a modern technology stack including Next.js, React, and TypeScript, and styled with Tailwind CSS, the platform provides a responsive and user-friendly experience. With secure authentication via Clerk, a robust data layer powered by Prisma and PostgreSQL, and optimized asset management through Cloudinary, Quantum Academy delivers a scalable, secure, and efficient digital infrastructure for modern educational institutions.",
+      ],
       children: [
         {
           id: 1,
@@ -272,15 +360,23 @@ const WORK_LOCATION = {
         },
       ],
     },
-
     // PerfLens
     {
-      id: 6,
+      id: 3,
       name: "Perf Lens",
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-[3vh] left-30",
       windowPosition: "top-[22vh] left-15",
+      images: [
+        "/images/perfLens-dashboard.png",
+        "/images/prefLens-dashboard-2.png",
+      ],
+      href: "https://wpa-01.vercel.app/",
+      description: [
+        "PerfLens is a modern performance analysis platform designed to help web developers understand and optimize their website performance with greater clarity and precision. Instead of presenting static Lighthouse scores, PerfLens transforms raw performance data into an interactive, insight-driven experience. With visual dashboards for Core Web Vitals such as LCP, CLS, and INP, developers can easily monitor performance trends, analyze multiple audit snapshots, and identify changes over time. The platform also provides advanced diagnostics, including a network waterfall view and detailed Lighthouse opportunities, enabling developers to quickly locate performance bottlenecks and resource-heavy components.",
+        "A standout capability of PerfLens is its AI Optimization Coach, powered by Google Gemini, which converts audit results into personalized, actionable recommendations tailored to the site’s performance data. Developers can also analyze JavaScript bundle sizes and payload transfers through a smart bundle analysis module to ensure efficient resource delivery. Built with a modern stack including Next.js, Tailwind CSS, Zustand, and Recharts, PerfLens delivers a sleek glassmorphic UI and a highly responsive developer experience. By combining powerful analytics, AI-driven insights, and intuitive visualization, PerfLens empowers developers to systematically improve performance and confidently achieve top Lighthouse scores.",
+      ],
       children: [
         {
           id: 1,
@@ -341,59 +437,6 @@ const WORK_LOCATION = {
         },
       ],
     },
-
-    // // ▶ Project 3
-    // {
-    //   id: 7,
-    //   name: "Food Delivery App",
-    //   icon: "/images/folder.png",
-    //   kind: "folder",
-    //   position: "top-5 left-80",
-    //   windowPosition: "top-[33vh] left-7",
-    //   children: [
-    //     {
-    //       id: 1,
-    //       name: "Food Delivery App Project.txt",
-    //       icon: "/images/txt.png",
-    //       kind: "file",
-    //       fileType: "txt",
-    //       position: "top-5 left-10",
-    //       description: [
-    //         "Our Food Delivery App is a fast and convenient way to order meals from your favorite restaurants.",
-    //         "Instead of making calls or waiting in line, you can browse menus, customize orders, and track deliveries in real time.",
-    //         "Think of it like having your favorite restaurants in your pocket—ready to deliver anytime, anywhere.",
-    //         "It’s built with React Native, so it works smoothly on both iOS and Android with a clean, modern design.",
-    //       ],
-    //     },
-    //     {
-    //       id: 2,
-    //       name: "food-delivery-app.com",
-    //       icon: "/images/safari.png",
-    //       kind: "file",
-    //       fileType: "url",
-    //       href: "https://youtu.be/LKrX390fJMw?si=cExkuVhf2DTV9G2-",
-    //       position: "top-10 right-20",
-    //     },
-    //     {
-    //       id: 4,
-    //       name: "food-delivery-app.png",
-    //       icon: "/images/image.png",
-    //       kind: "file",
-    //       fileType: "img",
-    //       position: "top-52 right-80",
-    //       imageUrl: "/images/project-3.png",
-    //     },
-    //     {
-    //       id: 5,
-    //       name: "Design.fig",
-    //       icon: "/images/plain.png",
-    //       kind: "file",
-    //       fileType: "fig",
-    //       href: "https://google.com",
-    //       position: "top-60 right-20",
-    //     },
-    //   ],
-    // },
   ],
 };
 

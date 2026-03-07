@@ -20,7 +20,7 @@ const Finder = ({ isMobile }) => {
   };
 
   const renderList = (list, name) => (
-    <div>
+    <div className="max-w-[200px]">
       <h3>{name}</h3>
       <ul>
         {list.map((item) => (
@@ -52,19 +52,21 @@ const Finder = ({ isMobile }) => {
           {renderList(Object.values(locations), "Favorites")}
           {renderList(locations.work.children, "Work")}
         </div>
-        <ul className="content">
+        <ul className="flex flex-row flex-wrap items-start p-4 max-h-[500px] overflow-auto">
           {activeLocation.children.map((item) => (
             <li
               key={item.id}
-              className={item.position}
+              className="flex flex-col items-center justify-center mr-2"
               onMouseDown={(e) => e.stopPropagation()}
               onClick={(e) => {
                 e.stopPropagation();
                 openItem(item);
               }}
             >
-              <img src={item.icon} alt={item.name} />
-              <p>{item.name}</p>
+              <img src={item.icon} alt={item.name} width={80} height={80} />
+              <p className=" w-[100px]  text-center text-xs truncate">
+                {...item.name}
+              </p>
             </li>
           ))}
         </ul>

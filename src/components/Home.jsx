@@ -72,15 +72,19 @@ const Home = () => {
 
   return (
     <section>
-      <ul className="relative flex items-center p-2 gap-4 z-100">
+      <ul className="relative flex items-center p-2 gap-10 z-100">
         {projects.map((project) => (
           <li
             key={project.id}
-            className={clsx("group folder")}
+            className={clsx(
+              "group folder flex flex-col items-center justify-between gap-2  max-w-21",
+            )}
             onClick={() => handleOpenWindow(project)}
           >
             <img src="/images/folder.png" alt={project.name} />
-            <p className="max-w-21 truncate text-white">{project.name}</p>
+            <p className="text-sm  max-w-21 truncate text-white">
+              {project.name}
+            </p>
           </li>
         ))}
       </ul>

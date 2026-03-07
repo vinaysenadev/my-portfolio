@@ -26,9 +26,11 @@ const Terminal = ({ isMobile }) => {
         <ul className="content">
           {techStack.map(({ category, items }) => (
             <li key={category} className="flex items-center">
-              <Check className="check" size={20} />
-              <h3>{category}</h3>
-              <ul>
+              <div className="flex items-center">
+                <Check className="check" size={20} />
+                <h3>{category}</h3>
+              </div>
+              <ul className="flex flex-wrap">
                 {items.map((item, i) => (
                   <li key={i}>
                     {item}

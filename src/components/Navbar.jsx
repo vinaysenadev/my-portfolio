@@ -41,16 +41,23 @@ const Navbar = () => {
 
   if (isMobile) {
     return (
-      <nav className="flex justify-between items-center px-6 py-2 bg-transparent backdrop-blur-none border-none  select-none">
-        <div className="flex justify-start w-full">
-          <time className="text-white font-semibold text-sm">
+      <nav className="text-white flex justify-between items-center px-6 py-2 bg-transparent backdrop-blur-none border-none  select-none">
+        <div className="flex-1 flex justify-start">
+          <time className="font-semibold text-sm text-white">
             {currentTime}
           </time>
         </div>
-        <div className="flex justify-end items-center gap-1.5 text-white">
+
+        {/* Center - Title */}
+        <div className="flex-1 flex justify-center font-medium text-sm">
+          Vinaysena's Portfolio
+        </div>
+
+        {/* Right - Icons */}
+        <div className="flex-1 flex justify-end items-center gap-2">
           <Signal size={16} strokeWidth={2.5} />
           <Wifi size={16} strokeWidth={2.5} />
-          <Battery size={20} strokeWidth={2} className="rotate-0" />
+          <Battery size={20} strokeWidth={2} />
         </div>
       </nav>
     );

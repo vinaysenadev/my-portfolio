@@ -17,7 +17,7 @@ const Trash = ({ isMobile }) => {
       )}
 
       <div className="flex w-full flex-1">
-        <div className="w-full bg-white">
+        <div className="w-full md:w-[600px] bg-white">
           <ul
             className={clsx(
               "flex p-4 gap-4 items-center flex-wrap overflow-y-auto",
