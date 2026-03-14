@@ -27,6 +27,14 @@ const Resume = ({ isMobile }) => {
         <div id="window-header" className="window-header">
           <WindowControls target="resume" />
           <h2>My Resume</h2>
+          <a
+            href="files/Vinayasenareddykatta.pdf"
+            download
+            className="cursor-pointer"
+            title="Download resume"
+          >
+            <Download className="icon" />
+          </a>
         </div>
       )}
 
